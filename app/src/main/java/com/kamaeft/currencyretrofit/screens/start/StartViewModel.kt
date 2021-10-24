@@ -1,22 +1,25 @@
-package com.kamaeft.currencyretrofit.screens.second
+package com.kamaeft.currencyretrofit.screens.start
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kamaeft.currencyretrofit.data.repository.Repository
-import com.kamaeft.currencyretrofit.model.beznal.BezNalichka
+import com.kamaeft.currencyretrofit.model.nal.Nalichka
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class SecondViewModel : ViewModel() {
+class StartViewModel : ViewModel(){
+
     var repo = Repository()
-    val myMoneyList: MutableLiveData<Response<BezNalichka>> = MutableLiveData()
+    val myMoneyList: MutableLiveData<Response<Nalichka>> = MutableLiveData()
 
 
-    fun getBezNalMoney(){
+    fun getNalMoney(){
         viewModelScope.launch {
-            myMoneyList.value = repo.getBezNal()
+            myMoneyList.value = repo.getNal()
 
         }
     }
+
+
 }
